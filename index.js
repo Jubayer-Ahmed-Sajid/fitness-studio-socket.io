@@ -46,7 +46,9 @@ io.on("connection", (socket) => {
     console.log(message);
     io.emit('read_unread_message', message)
   })
-
+socket.on('refetch_notification', message=> {
+  io.emit('refetch_notification', message)
+})
   socket.on("disconnect", () => {
     console.log("User disconnected");
   });
